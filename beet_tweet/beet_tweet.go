@@ -25,6 +25,10 @@ type BeetTweet struct {
 }
 
 func PersistTweet(bt *BeetTweet, db *sql.DB) {
+  if bt.Hours == -1 {
+    return
+  }
+
   query := fmt.Sprintf("INSERT INTO tweet (ID, SCREENNAME, NAME, HOURS, MENTIONTIME, NOTIFICATIONTIME, NOTIFIED) VALUES (%d, '%s', '%s', %d, '%s', '%s', %t);",
     bt.Id,
     bt.ScreenName,

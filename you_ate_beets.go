@@ -30,9 +30,7 @@ func main() {
 
 		for _, t := range ats {
 			tweet := beetTweet.ProcessTweet(t)
-			if tweet.Hours != -1 {
-				beetTweet.PersistTweet(tweet, db)
-			}
+			beetTweet.PersistTweet(tweet, db)
 		}
 
 		bts := beetTweet.RetrieveTweets(db)
